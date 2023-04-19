@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((printf '%o' $WATER+ printf '%o' $STIR"))
+echo $((printf "%o" $WATER+ printf "%o" $STIR))
