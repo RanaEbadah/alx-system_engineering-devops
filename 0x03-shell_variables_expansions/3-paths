@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -d ':' $PATH | sort | wc -l
+echo $(('echo $PATH | grep -o ":/" | wc -l' +1))
