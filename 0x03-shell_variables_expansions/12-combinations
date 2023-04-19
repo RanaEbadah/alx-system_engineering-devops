@@ -1,2 +1,2 @@
 #!/bin/bash
-echo {a..z}{a..z} | grep -vwE | sort
+echo {a..z}{a..z} | grep -vwE "oo" | sort
