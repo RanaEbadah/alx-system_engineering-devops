@@ -19,8 +19,15 @@ server {
 }
 EOF'
 
+# Check if the symbolic link already exists
+if [ -L "/etc/nginx/sites-enabled/default" ]; then
+    # Remove the existing symbolic link
+    sudo rm /etc/nginx/sites-enabled/default
+fi
+
 # Enable the default Nginx configuration
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart Nginx
 sudo /etc/init.d/nginx restart
+
