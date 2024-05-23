@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#This script installs the Nginx in my server.
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo /etc/init.d/nginx start
+sudo update-rc.d nginx defaults
+
+# Create the default Nginx configuration file
+sudo sh -c 'cat << EOF > /etc/nginx/sites-available/default
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        root /var/www/html;
+        index index.html index.htm;
+        return 200 "Hello World!";
+    }
+}
+EOF'
+
+# Enable the default Nginx configuration
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+# Restart Nginx
+sudo /etc/init.d/nginx restart
